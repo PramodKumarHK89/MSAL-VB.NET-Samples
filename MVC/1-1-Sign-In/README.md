@@ -3,15 +3,15 @@ services: active-directory
 platforms: dotnet
 author: pramkum
 level: 100
-client: VB.NET Web App
+client: VB.NET mvc Web App
 endpoint: Microsoft identity platform
 ---
 
-# A VB.NET Web app signing-in users with the Microsoft identity platform in your organization
+# A VB.NET mvc Web app signing-in users with the Microsoft identity platform in your organization
 
 ## Scenario
 
-This sample shows how to build a VB.NET Web app that uses OpenID Connect to sign in users. Users can only sign-in with their `work and school` accounts in their own organization. It leverages the OWIN middleware component.
+This sample shows how to build a VB.NET mvc Web app that uses OpenID Connect to sign in users. Users can only sign-in with their `work and school` accounts in their own organization. It leverages the OWIN middleware component.
 ![Sign in with Azure AD](Images/sign-in.png)
 
 > This is the first chapter of this ASP.NET Core Web App tutorial. Once you understand how to sign-in users in an ASP.NET Core Web App with Open Id Connect, can learn how to enable your [Web App to call a Web API on behalf of the signed-in user](../../2-WebApp-graph-user) in a later chapter.
@@ -79,7 +79,7 @@ There is one project in this sample. To register it, you can:
 
 1. In the list of pages for the app, select **Authentication**..
    - In the Redirect URIs section, select **Web** in the combo-box and enter the following redirect URI.
-    - `https://localhost:44374/`          
+    - `https://localhost:44300/`          
    - In the **Advanced settings** | **Implicit grant** section, check **ID tokens** as this sample requires
      the [ID Token](https://docs.microsoft.com/azure/active-directory/develop/id-tokens) to be enabled to
      sign-in the user.
@@ -105,7 +105,7 @@ You can clone this sample from your shell or command line:
   ```console
 git clone https://github.com/PramodKumarHK89/MSAL-VB.NET-Samples.git
 Navigate to the correct folder
-cd "WebForms\.NET Framework\1-1-Sign-In\WebForms-OpenIdConnect-Vb.Net"
+cd "MVC\1-1-Sign-In\Vb.Net_MVC_Sign_In"
   ```
 
 > Given that the name of the sample is very long, and so are the name of the referenced NuGet packages, you might want to clone it in a folder close to the root of your hard drive, to avoid file size limitations on Windows.
@@ -124,11 +124,8 @@ cd "WebForms\.NET Framework\1-1-Sign-In\WebForms-OpenIdConnect-Vb.Net"
 2. Name the project as per your need and select the .NET framework to 4.8. Please refer the below image for reference.
     ![Screenshot](Images/WebForms_Sign_In_Framework_2.png)
     
-3. Choose the project type as "Web forms". Change the "Authentication" setting from No authentication to "Work or school account" and select the domain where you want to create the app registration. Please do note that, itwill automatically create the app registration for you. So, ensure that account with which you are signed-in visual studio has necessary permission to create the app registration in the tenant. 
+3. Choose the project type as "mvc". Change the "Authentication" setting from No authentication to "Work or school account" and select the domain where you want to create the app registration. Please do note that, it will automatically create the app registration for you. So, ensure that account with which you are signed-in visual studio has necessary permission to create the app registration in the tenant. 
     ![Screenshot](Images/WebForms_Sign_In_Framework_3.png)
-
-4. Open Startup.vb class and add the below line of code above the class definition line
-    <Assembly: OwinStartup(GetType(Startup))>
 
 ### Step 3: Run the sample
 
